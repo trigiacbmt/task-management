@@ -12,7 +12,7 @@ comes with a LSP for Vim users.
 
 ## Start the application
 
-Run `npx nx serve angular-monorepo` to start the development server. Happy coding!
+Run `npm run build:lib` then run `npm run start`. Happy coding!!!
 
 ## Build for production
 

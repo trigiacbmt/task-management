@@ -1,0 +1,13 @@
+<div class="flex container mt-7"
+     cdkDropListGroup>
+     <!-- @for(status of taskStatuses; track $index) {
+        <lib-ui-board-list class="board-dnd-list" [status]="status" [issues]="issues()" [currentUserId]="currentUserId()"></lib-ui-board-list>
+     } -->
+     <div class="board-dnd-list"
+        lib-ui-board-list
+         *ngFor="let status of taskStatuses"
+         [status]="status"
+         [currentUserId]="currentUserId()"
+         [issues]="issues()">
+    </div>
+</div>

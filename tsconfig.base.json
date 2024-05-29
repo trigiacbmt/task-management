@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@trigiacbmt/data-access": ["packages/data-access/src/index.ts"],
+      "@trigiacbmt/ui-lib": ["packages/ui/src/index.ts"],
+      "@trigiacbmt/util": ["packages/util/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,42 @@
+@if(isEditing) {
+<quill-editor
+  class="content-editor"
+  [modules]="editorOptions"
+  [formControl]="descriptionControl"
+  [placeholder]="''"
+  (onEditorCreated)="editorCreated($event)"
+>
+</quill-editor>
+
+<div class="pt-3 flex items-center">
+  <lib-ui-button
+    [isWorking]="isWorking"
+    [className]="'btn-primary'"
+    class="mr-2"
+    (click)="save()"
+  >
+    Save</lib-ui-button
+  >
+  <lib-ui-button (click)="cancel()" [className]="'btn-empty'"> Cancel </lib-ui-button>
+</div>
+}@else {
+<div
+  class="ql-snow content-readonly"
+  *ngIf="!isEditing"
+  (click)="setEditMode(true)"
+>
+  <div
+    class="ql-editor"
+    [innerHTML]="task().description || 'Click to add description'"
+  ></div>
+  <div class="icon-edit">
+    <i
+      nz-icon
+      class="cursor-pointer"
+      title="Click to edit"
+      nzType="edit"
+      nzTheme="outline"
+    ></i>
+  </div>
+</div>
+}

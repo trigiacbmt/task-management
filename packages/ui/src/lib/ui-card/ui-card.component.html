@@ -1,0 +1,44 @@
+<div class="issue-wrap">
+    <div (click)="openIssueModal(issue().id)"
+         class="issue">
+        <p class="pb-3 text-15 text-textDarkest">
+            {{ issue().title }}
+        </p>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center ml-1">
+                @for(user of assignees; track user?.id) {
+                    <lib-ui-avatar *ngIf="user"
+                          [avatarSize]="24"
+                          nz-tooltip
+                          [nzTooltipMouseEnterDelay]="0.3"
+                          nzTooltipTitle="Assignee: {{ user.name }}"
+                          nzTooltipPlacement="bottom"
+                          [avatarUrl]="user.avatarUrl">
+                    </lib-ui-avatar>
+                }              
+                <span [class.ml-3]="assignees?.length" class="uppercase">
+                    {{issue().type}}-{{issue().id}}
+                </span>
+            </div>
+            <div class="flex items-center">
+                <lib-ui-svg-icon class="mr-1 text-textMedium"
+                          [name]="issueTypeIcon"
+                          nz-tooltip
+                          [nzTooltipMouseEnterDelay]="0.3"
+                          [nzTooltipTitle]="issue().type"
+                          nzTooltipPlacement="bottom"
+                          [size]="20">
+                </lib-ui-svg-icon>
+
+                <lib-ui-svg-icon [name]="priorityIcon?.icon"
+                          nz-tooltip
+                          [nzTooltipMouseEnterDelay]="0.3"
+                          [nzTooltipTitle]="priorityIcon?.value"
+                          nzTooltipPlacement="bottom"
+                          [size]="20"
+                          [style.color]="priorityIcon?.color">
+                </lib-ui-svg-icon>
+            </div>            
+        </div>
+    </div>
+</div>

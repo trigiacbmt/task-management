@@ -20,9 +20,18 @@
           {
             "glob": "**/*",
             "input": "apps/angular-monorepo/public"
+          },
+          {
+            "input": "packages/data-access/assets/data",
+            "glob": "**/*",
+            "output": "assets"
           }
         ],
-        "styles": ["apps/angular-monorepo/src/styles.scss"],
+        "styles": [
+          "apps/angular-monorepo/src/styles.scss",
+          "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+          "node_modules/quill/dist/quill.snow.css"
+        ],
         "scripts": []
       },
       "configurations": {

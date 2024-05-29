@@ -1,0 +1,25 @@
+<div class="mt-6 mb-1 uppercase text-textMedium text-13 font-bold">
+    Status
+</div>
+<lib-ui-button nz-dropdown
+          nzTrigger="click"
+          [nzDropdownMenu]="menu"
+          [className]="variants[task().status] + ' uppercase text-textMedium text-13'">
+    {{ TaskStatusDisplay[task().status] }}
+</lib-ui-button>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu
+        nzNoAnimation
+        class="mt-3">
+        @for(option of taskStatuses; track $index) {
+            <li nz-menu-item
+            *ngIf="!isStatusSelected(option.value)"
+            (click)="updateIssue(option.value)">
+            <div class="flex items-center">
+                <span class="ml-3 font-semibold uppercase text-textMedium text-13">{{ option.label }}</span>
+            </div>
+        </li>
+        }
+    </ul>
+</nz-dropdown-menu>

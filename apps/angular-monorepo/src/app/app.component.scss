@@ -1,0 +1,73 @@
+.content-editor {
+    ::ng-deep .ql-toolbar {
+      border-radius: 4px 4px 0px 0px !important;
+      border: 1px solid #dfe1e6 !important;
+      border-bottom: none !important;
+    }
+    ::ng-deep .ql-container.ql-snow {
+      height: auto !important;
+      color: #172b4d;
+      font-size: 15px;
+      border-radius: 0px 0px 4px 4px;
+      border: 1px solid #dfe1e6;
+      border-top: none;
+    }
+  }
+  
+
+#app-frame {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  
+    > nz-spin {
+    }
+  }
+
+  #content {
+    flex: 1;
+    min-width: 0;
+    z-index: 0;
+    overflow: auto;
+    will-change: padding-left;
+    transition: padding-left 300ms cubic-bezier(0.2, 0, 0, 1) 0s;
+  }
+  
+  
+  app-project {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    /* for Firefox */
+    min-height: 0;
+  }
+  
+  lib-ui-board {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  .global-spinner {
+    min-height: 100vh;
+    ::ng-deep .ant-spin {
+      max-height: unset !important;
+    }
+  }
+  
+  //ng-zorro override
+  body {
+    overflow: hidden;
+  }
+  
+  body,
+  .ant-modal {
+    --tw-text-opacity: 1;
+    color: rgb(66 82 110 / var(--tw-text-opacity));
+  }
+  
+  .ant-modal-body {
+    padding: 0;
+  }

@@ -1,0 +1,47 @@
+<div class="flex items-center mt-6">
+    <form class="w-40 mr-4">
+        <nz-input-group>
+            <input type="text" nz-input name="search" [formControl]="searchControl" />
+          </nz-input-group>
+    </form>
+    <div class="flex flex-row mr-3">
+        <div *ngFor="let user of users()"
+             class="lift-avatar"
+             nz-tooltip
+             [nzTooltipPlacement]="'bottom'"
+             [class.is-active]="isUserSelected(user)"
+             [nzTooltipTitle]="user.name">
+            <lib-ui-avatar class="flex"
+                      className="select-none shadow-outline-white"
+                      [avatarUrl]="user.avatarUrl"
+                      [avatarSize]="36"
+                      (click)="userChanged(user)">
+            </lib-ui-avatar>
+        </div>
+    </div>
+    <lib-ui-button class="ml-3"
+              className="btn-empty"
+              [isActive]="checkActiveOnlyMyIssue()"
+              (click)="onlyMyIssueChanged()">
+        Only My Issues
+    </lib-ui-button>
+    <lib-ui-button class="ml-3"
+              [isActive]="checkActiveIgnoreResolved()"
+              (click)="ignoreResolvedChanged()"
+              className="btn-empty">
+        Ignore Resolved
+    </lib-ui-button>
+    <lib-ui-button class="ml-3"
+              (click)="openCreateModal()"
+              className="btn-empty">
+        Create Task
+    </lib-ui-button>
+    @if(checkActiveReset()) {
+        <div class="ml-3 flex items-center">
+            <div class="mr-3 w-px bg-backgroundMedium self-stretch"></div>
+            <lib-ui-button [className]="'btn-secondary'"
+                      (click)="resetAll()">Clear all
+            </lib-ui-button>
+        </div>
+    }
+</div>

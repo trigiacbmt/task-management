@@ -1,0 +1,17 @@
+.lift-avatar {
+    cursor: pointer;
+    margin-left: -0.25rem;
+    display: flex;
+    border-radius: 9999px;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 100ms;
+    &.is-active {
+      box-shadow: 0 0 0 4px #1255b9;
+      z-index: 1;
+    }
+  
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }

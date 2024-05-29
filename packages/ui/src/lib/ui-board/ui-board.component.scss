@@ -1,0 +1,9 @@
+.board-dnd-list {
+    @apply mr-2 flex flex-col  rounded-sm  flex-shrink-0;
+    --tw-bg-opacity: 1;
+    background-color: rgb(235 236 240 / var(--tw-bg-opacity));
+    width: calc(100% / 3 - 8px);
+    min-height: 400px;
+    min-width: 200px;  
+  }
+  

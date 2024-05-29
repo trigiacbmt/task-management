@@ -1,0 +1,12 @@
+<div class="pr-6 py-8 pl-8 h-full w-full flex flex-col max-h-screen">
+    <!-- <breadcrumbs [items]="breadcrumbs"></breadcrumbs> -->
+    @if(taskId) {
+        <lib-ui-task-detail
+        [task]="taskById"
+        [isShowCloseButton]="false"
+        [isShowFullScreenButton]="false"
+        (onDelete)="deleteIssue($event)">
+        </lib-ui-task-detail>
+    }
+    
+</div>

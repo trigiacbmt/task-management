@@ -1,0 +1,11 @@
+<nz-breadcrumb>
+    @for(item of items(); track item?.link) {
+        <nz-breadcrumb-item>
+            <a [routerLink]="item?.link">{{ item?.title }}</a>
+        </nz-breadcrumb-item>
+    }@empty {
+        <nz-breadcrumb-item>
+            <a [routerLink]="['/']">Home</a>
+        </nz-breadcrumb-item>
+    } 
+  </nz-breadcrumb>

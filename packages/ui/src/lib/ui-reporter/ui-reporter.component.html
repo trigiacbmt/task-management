@@ -1,0 +1,21 @@
+<div class="mt-6 mb-1 uppercase text-textMedium text-13 font-bold">
+    Reporter
+</div>
+<lib-ui-button [className]="'btn-secondary'" nz-dropdown
+[nzTrigger]="'click'"
+[nzDropdownMenu]="menu">
+            <lib-ui-user [user]="reporter()"></lib-ui-user>  
+</lib-ui-button>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul class="mt-3"
+        nz-menu
+        nzNoAnimation>
+        <ng-container *ngFor="let option of users()">
+            <li nz-menu-item
+                *ngIf="!isUserSelected(option)"
+                (click)="updateIssue(option)">
+                <lib-ui-user [user]="option"></lib-ui-user>
+            </li>
+        </ng-container>
+    </ul>
+</nz-dropdown-menu>

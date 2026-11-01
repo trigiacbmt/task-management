@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UiTaskDetailComponent } from '@trigiacbmt/ui-lib';
+import { UiBreadcrumbComponent, UiTaskDetailComponent } from '@trigiacbmt/ui-lib';
 import { DeleteIssueModel, Project, ProjectConst, SafeAny, Task } from '@trigiacbmt/util';
 import { ProjectStore } from '@trigiacbmt/data-access';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { getState } from '@ngrx/signals';
 @Component({
   selector: 'app-task-details',
   standalone: true,
-  imports: [CommonModule, UiTaskDetailComponent],
+  imports: [CommonModule, UiTaskDetailComponent, UiBreadcrumbComponent],
   templateUrl: './task-details.component.html',
   styleUrl: './task-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,8 +24,12 @@ export class TaskDetailsComponent implements OnInit, OnDestroy{
   project?: Project;
   taskById: Task | SafeAny;
   taskId?: string;
-  get breadcrumbs(): SafeAny{
-    return [ProjectConst.Projects, this.project?.name, 'Issues', this.taskId];
+  get breadcrumbs(): { title: string; link: string }[] {
+    return [
+      { title: ProjectConst.Projects, link: '/' },
+      { title: this.project?.name ?? 'Board', link: '/board' },
+      { title: this.taskId ?? '', link: `/task/${this.taskId ?? ''}` },
+    ];
   }
 
 

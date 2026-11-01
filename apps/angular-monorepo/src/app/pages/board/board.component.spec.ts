@@ -18,4 +18,9 @@ describe('BoardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the breadcrumb header (KAN-5)', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('lib-ui-breadcrumb')).not.toBeNull();
+  });
 });
